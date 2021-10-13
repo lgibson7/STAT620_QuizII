@@ -1,0 +1,107 @@
+---
+title: "Derivation of MGF of Binomial Distribution"
+author: "Ashley Cox, Lydia Gibson, Sada Balamurugan"
+date: "10/5/2021"
+output: beamer_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+## STAT 620 Quiz II Assignment
+
+Derive mgf of binomial distribution and use it to find mean and variance.
+
+
+## Binomial Distribution
+
+If a total number of **n** Bernoulli trials (success/ failures) are conducted and
+
+* The trials must be independent
+* Each trial must have the same success of probability **p**
+* X is the number of success in the **n** trials
+
+then X has the Binomial distribution with the parameters **n** and **p**
+
+## Binomial Distribution
+
+We know for the binomial distribution
+
+$$X\sim Bin(n,p)$$
+$$x\in S_X\space \space where \space \space S_X={0,1,...n}$$
+
+
+
+where the pmf is 
+
+
+$$f_X(x)= \binom{n}{x}p^x(1-p)^{n-x}$$
+
+## MGF
+
+
+By definition the MGF is
+
+
+$$M_X(t)=E(e^{tX})$$
+
+
+## but it can easily be written in terms of summation like
+
+$$M_X(t)=\sum_{x=0}^{n}e^{t\cdot x}\binom{n}{x}p^x(1-p)^{n-x}$$
+
+
+## Binomial theorem states that
+
+$$ \sum_{k=0}^{n}\binom{n}{k}x^{n-k}y^{k}=(x+y)^n$$
+
+##
+
+$$M_X(t)=\sum_{x=0}^{n}\binom{n}{x}(1-p)^{n-x}(e^tp)^n$$
+
+$$M_X(t)=(1-p+pe^t)^n$$
+
+
+## Mean or E(X) is the first derivative of the MGF
+
+$$E(X)= M_X \space '(t)=\frac{d}{dt}(1-p+pe^t)^n=n(1-p+pe^t)^{n-1}\cdot (0-0+pe^t)$$
+The zeroes cancel out, switch the terms around and you are left with
+
+$$M_X \space '(t)=np(e^t)(1-p+pe^t)^{n-1}$$
+
+
+## For mean, when t=0
+
+$$E(X)=np(e^0)(1-p+pe^0)^{n-1}$$
+E raised to the zero power is 1, the p's in the second half of the equation cancel out, one raised to any power is one and you are left with
+
+$$E(X)=np \cdot 1(1-p+p)^{n-1}=np \cdot1\cdot1 =np$$
+
+
+## To find the variance you take the second derivative of the mgf
+
+$$ M_X \space \space ''(t)=\frac{d}{dt}np(e^t)(1-p+pe^t)^{n-1}$$
+$$ M_X \space \space''(t)=np(e^t)(1-p+pe^t)^{n-1}+npe^t[(n-1)(1-p+pe^t)^{n-2}\cdot pe^t]$$
+
+
+## Rearrange the terms and we have 
+
+$$ M_X \space \space ''(t)=n\cdot p(e^t)(1-p+pe^t)^{n-1}+n(n-1) p^2(e^{t^2})(1-p+pe^t)^{n-2}$$
+$$ M_X \space \space'' (t)=n\cdot p(1)+n(n-1) p^2(1)(1)$$
+Such that
+
+$$E(X^2)=np(1)+n(n-1)p^2=np+(n^2-n)p^2=np+n^2p^2-np^2$$
+
+## Inputing what we have derived in to the formula for variance
+
+$$Var(X)=E(X^2)-[E(X)]^2$$
+We have
+
+$$Var(X)=np+n^2p^2-np^2-n^2p^2$$
+
+where $$[E(X)]^2=(np)^2=n^2p^2$$
+
+
+## The second and fourth term cancel each other out and we are left with
+
+$$Var(X)=np-np^2=np(1-p)$$
