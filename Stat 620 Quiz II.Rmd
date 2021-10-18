@@ -28,7 +28,7 @@ then X has the Binomial distribution with the parameters **n** and **p**
 We know for the binomial distribution
 
 $$X\sim Bin(n,p)$$
-$$x\in S_X\space \space where \space \space S_X=\{{0,1,...n}\}$$
+$$S_X=\{{0,1,...n}\}$$
 
 
 
