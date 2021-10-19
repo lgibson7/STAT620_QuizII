@@ -64,7 +64,7 @@ $$M_X(t)=(1-p+pe^t)^n$$
 
 ## Mean or E(X) is the first derivative of the MGF
 
-$$E(X)= M_X \space '(t)=\frac{d}{dt}(1-p+pe^t)^n=n(1-p+pe^t)^{n-1}\cdot (0-0+pe^t)$$
+$$M_X \space '(t)=\frac{d}{dt}(1-p+pe^t)^n=n(1-p+pe^t)^{n-1}\cdot (0-0+pe^t)$$
 The zeroes cancel out, switch the terms around and you are left with
 
 $$M_X \space '(t)=np(e^t)(1-p+pe^t)^{n-1}$$
@@ -87,7 +87,11 @@ $$ M_X \space \space''(t)=np(e^t)(1-p+pe^t)^{n-1}+npe^t[(n-1)(1-p+pe^t)^{n-2}\cd
 ## Rearrange the terms and we have 
 
 $$ M_X \space \space ''(t)=n\cdot p(e^t)(1-p+pe^t)^{n-1}+n(n-1) p^2(e^{t^2})(1-p+pe^t)^{n-2}$$
-$$ M_X \space \space'' (t)=n\cdot p(1)+n(n-1) p^2(1)(1)$$
+
+
+Put t=0
+
+$$ M_X \space \space'' (0)=n\cdot p(1)+n(n-1) p^2(1)(1)$$
 Such that
 
 $$E(X^2)=np(1)+n(n-1)p^2=np+(n^2-n)p^2=np+n^2p^2-np^2$$
